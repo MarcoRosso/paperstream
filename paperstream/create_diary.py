@@ -183,7 +183,7 @@ def create_diary_page(pdf_template, font, top_left_text, page_number, top_right_
 
     # Header
     diary_canvas.setFont(font, 11)
-    diary_canvas.drawRightString(378, 562, str(top_right_text))
+    #diary_canvas.drawRightString(378, 562, str(top_right_text))
     diary_canvas.drawString(36.5, 562, top_left_text)
 
     # Corners
@@ -195,11 +195,12 @@ def create_diary_page(pdf_template, font, top_left_text, page_number, top_right_
         if corner_path.exists():
             corner = ImageReader(corner_path)
             diary_canvas.drawImage(corner, x=x, y=y, mask='auto')
-
+    
     # Footer
-    diary_canvas.setFont(font, 8)
-    diary_canvas.drawString(36.5, 24, str(page_number))
+    #diary_canvas.setFont(font, 8)
+    #diary_canvas.drawString(36.5, 24, str(page_number))
     diary_canvas.save()
+
 
     # Merge template and additions (header, corners and footer)
     packet.seek(0)
